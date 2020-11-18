@@ -1,0 +1,71 @@
+<form [formGroup]="formulario" (submit)="updateFiltro('0')" class="fondoPlomo" novalidate autocomplete="off">
+
+
+<div class="row">
+  <div class="col-3 fondoPlomo"></div>
+  <div class="col-6 fondoBlanco">
+    <nav class="navbar navbar-light nav">
+      <a class="navbar-brand"><label class="texto">{{titulo}}</label></a>
+    </nav>
+    <div class="card">
+      <div class="card-body titulo">
+        <span class="letraBlanca"><h1>Tutoriales</h1></span>
+      </div>
+    </div>
+    <br/>
+    <div class="col-sm">
+      <input class="buscador" id="filtro" type="text" class="form-control" name="filtro"  placeholder="Buscar por titulo" />
+    </div>
+    <div class="col">
+          <div class="select-container text-right ">
+              Ordenado por
+              <select class="" id="selectFiltro" name="selectFiltro"  [(ngModel)]="selectFiltro" [ngModelOptions]="{standalone: true}" (selectionChange)="updateFiltro($event.value)">
+                <option value="titulo">Título</option>
+                <option value="fecha">Fecha</option>
+              </select>
+          </div>
+    </div>
+    <br/>
+    <div class="col-12" *ngFor="let tutorial of tutoriales">
+      <div class="row">
+          <div class="col-8"><strong>{{tutorial.nombre}}</strong></div>
+          <div class="col-4">{{tutorial.fecha}}</div>
+      </div>
+      <div class="row">
+        <div class="col">{{tutorial.profesor}}</div>
+      </div>
+      <hr>
+    </div>
+    <div class="col text-center">
+      <button class="btn btn-outline-secondary" title="Eliminar todos los tutoriales" (click)="eliminarTodos()">
+        Eliminar Todos
+      </button>
+    </div>
+    <hr>
+    <br />
+    <div class="col">
+    <div class="row">
+      <div class="col-8"></div>
+      <div class="col-4 center">
+
+        <button class="btn btn-outline-primary center " title="Agregar Tutorial" >
+          <img class="center " src="../../../assets/img/agregar.png " alt="Agregar Tutorial" (click)="agregar()" />
+        </button>
+
+      </div>
+    </div>
+    </div>
+
+  </div>
+  </div>
+  <div class="col-3 fondoPlomo"></div>
+
+
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="card-footer text-muted text-center">Rayen Salud 2020</div>
+  </div>
+</div>
+
+</form>

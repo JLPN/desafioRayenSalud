@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+.titulo {
+  background: #6200EE;
+  color: #6200EE;
+}
+
+.letraBlanca {
+  color: rgba(255, 255, 255, 1);
+  font-weight: Bold;
+  font-size: 20px;
+  font: "Roboto-Medium";
+  opacity: 1;
+  top: 16px;
+  left: 72px;
+  width: 108px;
+  height: 24px;
+}
+
+.fondoPlomo {
+  background: #F2F3F8;
+}
+
+.fondoBlanco {
+  background: #ffffff;
+}
+.buscador {
+  top: 80px;
+  left: 17px;
+  width: 328px;
+  height: 56px;
+}

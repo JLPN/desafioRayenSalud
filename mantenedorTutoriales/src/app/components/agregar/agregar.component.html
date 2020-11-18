@@ -1,0 +1,61 @@
+<form [formGroup]="formulario"  class="fondoPlomo" novalidate autocomplete="off">
+
+
+  <div class="row">
+    <div class="col-3 fondoPlomo"></div>
+    <div class="col-6 fondoBlanco">
+      <nav class="navbar navbar-light nav">
+        <a class="navbar-brand"><label class="texto">{{titulo}}</label></a>
+      </nav>
+      <div class="card">
+        <div class="card-body titulo">
+          <span class="letraBlanca"><h1>{{titulo2}}</h1></span>
+        </div>
+      </div>
+      <br/>
+      <div class="col-sm">
+        <input id="titulo" type="text" class="form-control" name="titulo" [(ngModel)]="tituloTutorial" placeholder="Titulo" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <br/>
+      <div class="col-sm">
+        <input id="profesor" type="text" class="form-control" name="profesor" [(ngModel)]="profesor" placeholder="Profesor" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <br/>
+      <div class="col-sm">
+        <input id="materia" type="text" class="form-control" name="materia" [(ngModel)]="materia" placeholder="Materia" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <br/>
+      <div class="col-sm">
+        <input id="fecha" type="text" class="form-control" name="fecha" [(ngModel)]="fecha" placeholder="Fecha" [ngModelOptions]="{standalone: true}"/>
+      </div>
+
+
+      <br/>
+      <div class="col text-center">
+        <button class="btn btn-primary" title="Agregar" (click)="agregar()">
+          Agregar
+        </button>
+      </div>
+      <hr>
+      <br />
+      <div class="col">
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4 center">
+        </div>
+      </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="col-3 fondoPlomo"></div>
+
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="card-footer text-muted text-center">Rayen Salud 2020</div>
+    </div>
+  </div>
+
+  </form>
