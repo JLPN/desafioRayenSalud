@@ -1,6 +1,6 @@
 export class Tutorial {
   id: number;
-  descripcion: string;
+  nombre: string;
   profesor: string;
   materia: string;
   fecha: Date ;

@@ -1,3 +1,6 @@
+import { SortByPipe } from './pipes/sortByPipe';
+import { sortBy } from 'lodash';
+import { SortPipe } from './pipes/sortPipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,13 +9,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AgregarComponent } from './components/agregar/agregar.component';
+import { EditarComponent } from './components/editar/editar.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AgregarComponent
+    AgregarComponent,
+    EditarComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

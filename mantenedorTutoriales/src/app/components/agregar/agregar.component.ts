@@ -28,26 +28,35 @@ export class AgregarComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = this.fb.group({});
     this.selectFiltro = 'titulo';
+    this.tituloTutorial = '';
+    this.profesor = '';
+    this.materia = '';
+    this.fecha = '';
+
   }
 
 
   agregar(){
+    if (this.tituloTutorial === '') return false;
+    if (this.profesor == '') return false;
+    if (this.materia == '') return false;
+    if (this.fecha == '' ) return false;
 
     this.agregarTutorial().subscribe(
 
       (res) => {
-        console.log('paso');
-        console.log(res);
           if (res === null) { return false; }
           this.router.navigate([`/home`]);
       },
       (err) => {
         console.log(err);
           alert('Ha ocurrido un error, intente nuevamente' + err.message);
-
-
       }
     );
+  }
+
+  regresar(){
+    this.router.navigate([`/home`]);
   }
 
   agregarTutorial() {
@@ -57,7 +66,6 @@ export class AgregarComponent implements OnInit {
       "materia": this.materia.toString(),
       "fecha": this.fecha.toString()
   };
-  console.log(datos);
     return this.http.post(`${this.urlAgregar}`, datos ,
      { headers: new HttpHeaders({
       'Content-Type': 'application/json'}),

@@ -29,3 +29,22 @@
   width: 328px;
   height: 56px;
 }
+
+.boton {
+  border: #6200EE;
+  background: #6200EE;
+  color:  #ffffff;
+}
+
+.boton2 {
+  color: purple  ;
+  border-color: rebeccapurple;
+}
+
+.boton3 {
+  color: white  ;
+  background: rebeccapurple;
+  border-color: rebeccapurple;
+}
+
+

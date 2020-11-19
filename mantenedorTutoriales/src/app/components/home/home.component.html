@@ -1,4 +1,4 @@
-<form [formGroup]="formulario" (submit)="updateFiltro('0')" class="fondoPlomo" novalidate autocomplete="off">
+<form [formGroup]="formulario" (submit)="updateFiltro()" class="fondoPlomo" novalidate autocomplete="off">
 
 
 <div class="row">
@@ -14,28 +14,44 @@
     </div>
     <br/>
     <div class="col-sm">
-      <input class="buscador" id="filtro" type="text" class="form-control" name="filtro"  placeholder="Buscar por titulo" />
+      <input class="buscador" id="filtro" type="text" class="form-control" name="filtro" [(ngModel)]="filtro" [ngModelOptions]="{standalone: true}" placeholder="Buscar por titulo" (keyup)="buscar()" />
     </div>
     <div class="col">
           <div class="select-container text-right ">
               Ordenado por
-              <select class="" id="selectFiltro" name="selectFiltro"  [(ngModel)]="selectFiltro" [ngModelOptions]="{standalone: true}" (selectionChange)="updateFiltro($event.value)">
+              <select class="" id="selectFiltro" name="selectFiltro"  [(ngModel)]="selectFiltro" [ngModelOptions]="{standalone: true}" (change)="updateFiltro()">
                 <option value="titulo">Título</option>
                 <option value="fecha">Fecha</option>
               </select>
           </div>
     </div>
     <br/>
-    <div class="col-12" *ngFor="let tutorial of tutoriales">
+    <div *ngIf="selectFiltro == 'titulo'">
+    <div class="col-12" *ngFor="let tutorial of tutoriales | sortBy:true:'asc':'nombre'">
       <div class="row">
-          <div class="col-8"><strong>{{tutorial.nombre}}</strong></div>
-          <div class="col-4">{{tutorial.fecha}}</div>
+          <div class="col-8" (click) ="editar(tutorial.id)"><strong>{{tutorial.nombre}}</strong></div>
+          <div class="col-4" (click) ="editar(tutorial.id)">{{tutorial.fecha | date}}</div>
       </div>
       <div class="row">
-        <div class="col">{{tutorial.profesor}}</div>
+        <div class="col" ng-click ="editar(tutorial.id)">{{tutorial.profesor}} </div>
       </div>
       <hr>
     </div>
+    </div>
+
+    <div *ngIf="selectFiltro != 'titulo'">
+    <div class="col-12" *ngFor="let tutorial of tutoriales | sortBy:true:'asc':'fecha'">
+      <div class="row">
+          <div class="col-8" (click) ="editar(tutorial.id)"><strong>{{tutorial.nombre}}</strong></div>
+          <div class="col-4" (click) ="editar(tutorial.id)">{{tutorial.fecha | date}}</div>
+      </div>
+      <div class="row">
+        <div class="col" ng-click ="editar(tutorial.id)">{{tutorial.profesor}} </div>
+      </div>
+      <hr>
+    </div>
+    </div>
+
     <div class="col text-center">
       <button class="btn btn-outline-secondary" title="Eliminar todos los tutoriales" (click)="eliminarTodos()">
         Eliminar Todos

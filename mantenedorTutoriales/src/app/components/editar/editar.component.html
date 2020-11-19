@@ -17,6 +17,10 @@
                       <
                </button>
                <div class="col-2"></div>{{titulo2}}
+               <div class="col-2"></div>
+              <button [hidden]="!ver" class="boton" title="Editar">
+                <img class="center " src="../../../assets/img/editar.png " alt="Editar Tutorial" (click)="switchVer()" />
+              </button>
             </div>
             </h1>
 
@@ -26,30 +30,39 @@
       <br/>
       <div class="col-sm">
         <label for="titulo" class="mb-0">Título</label>
-        <input id="titulo" type="text" class="form-control" name="titulo" [(ngModel)]="tituloTutorial" placeholder="Titulo" [ngModelOptions]="{standalone: true}"/>
+        <input [disabled]="ver" id="titulo" type="text" class="form-control" name="titulo" [(ngModel)]="tituloTutorial" placeholder="Titulo" [ngModelOptions]="{standalone: true}"/>
       </div>
       <br/>
       <div class="col-sm">
         <label for="profesor" class="mb-0">Profesor</label>
-        <input id="profesor" type="text" class="form-control" name="profesor" [(ngModel)]="profesor" placeholder="Profesor" [ngModelOptions]="{standalone: true}"/>
+        <input [disabled]="ver" id="profesor" type="text" class="form-control" name="profesor" [(ngModel)]="profesor" placeholder="Profesor" [ngModelOptions]="{standalone: true}"/>
       </div>
       <br/>
       <div class="col-sm">
         <label for="materia" class="mb-0">Materia</label>
-        <input id="materia" type="text" class="form-control" name="materia" [(ngModel)]="materia" placeholder="Materia" [ngModelOptions]="{standalone: true}"/>
+        <input [disabled]="ver" id="materia" type="text" class="form-control" name="materia" [(ngModel)]="materia" placeholder="Materia" [ngModelOptions]="{standalone: true}"/>
       </div>
       <br/>
       <div class="col-sm">
         <label for="fecha" class="mb-0">Fecha</label>
-        <input id="fecha" type="text" class="form-control" name="fecha" [(ngModel)]="fecha" placeholder="Fecha" [ngModelOptions]="{standalone: true}"/>
+        <input [disabled]="ver" id="fecha" type="text" class="form-control" name="fecha" [(ngModel)]="fecha" placeholder="Fecha" [ngModelOptions]="{standalone: true}"/>
       </div>
 
 
       <br/>
-      <div class="col text-center">
-        <button class="btn btn-primary" title="Agregar" (click)="agregar()">
-          Agregar
+      <br/>
+      <div class="row">
+      <div class="col-1"></div>
+      <div class="col-8">
+        <button [hidden]="ver" class="btn btn-outline-primary boton2" title="Eliminar" (click)="eliminarTutorial()">
+          Eliminar
         </button>
+      </div>
+      <div class="col-3">
+        <button [hidden]="ver" class="btn btn-primary boton3" title="Modificar" (click)="modificar()">
+          Modificar
+        </button>
+      </div>
       </div>
       <hr>
       <br />
