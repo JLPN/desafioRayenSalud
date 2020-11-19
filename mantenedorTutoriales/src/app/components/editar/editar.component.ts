@@ -1,7 +1,7 @@
 import { Tutorial } from './../../models/tutorial.model';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({

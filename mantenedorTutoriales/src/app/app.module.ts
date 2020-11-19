@@ -1,6 +1,4 @@
 import { SortByPipe } from './pipes/sortByPipe';
-import { sortBy } from 'lodash';
-import { SortPipe } from './pipes/sortPipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
